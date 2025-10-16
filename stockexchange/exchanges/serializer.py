@@ -2,6 +2,27 @@ from rest_framework.serializers import ModelSerializer
 from rest_framework import serializers
 from exchanges.models import *
 from decimal import Decimal
+from django.contrib.auth.models import User
+from django.contrib.auth.password_validation import validate_password
+
+
+class SignUpSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
+    password2 = serializers.CharField(write_only=True, required=True)
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password', 'password2']
+
+    def validate(self, attrs):
+        if attrs['password'] != attrs['password2']:
+            raise serializers.ValidationError({"password": "Passwords must match."})
+        return attrs
+
+    def create(self, validated_data):
+        validated_data.pop('password2')
+        user = User.objects.create_user(**validated_data)
+        return user
 
 
 class CompanySerializer(ModelSerializer):
@@ -10,7 +31,7 @@ class CompanySerializer(ModelSerializer):
         fields = '__all__'
 
 
-class PortfiloSerializer(ModelSerializer):
+class PortfolioSerializer(ModelSerializer):
     class Meta:
         model = Portfolio
         fields = '__all__'

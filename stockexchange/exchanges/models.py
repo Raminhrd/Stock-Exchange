@@ -42,10 +42,17 @@ class Order(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     type = models.CharField(max_length=4, choices=ORDER_TYPE_CHOICES)
     quantity = models.PositiveIntegerField()
-    remaining_quantity = models.PositiveIntegerField()
+    remaining_quantity = models.PositiveIntegerField(default=0)
     price = models.DecimalField(max_digits=12, decimal_places=2)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='active')
     created_at = models.DateTimeField(auto_now_add=True)
+
+def save(self, *args, **kwargs):
+    if not self.remaining_quantity:
+        self.remaining_quantity = self.quantity
+    super().save(*args, **kwargs)
+
+
 
 
 class Trade(models.Model):

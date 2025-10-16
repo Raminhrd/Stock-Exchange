@@ -1,11 +1,24 @@
 from rest_framework.generics import ListAPIView, ListCreateAPIView, RetrieveAPIView
+from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Company, Portfolio, Order, Trade
 from .serializer import CompanySerializer, PortfolioSerializer, OrderSerializer, TradeSerializer
+from rest_framework.response import Response
+from rest_framework import status
+from .serializer import SignUpSerializer
 
 
+
+class SignUpView(APIView):
+    def post(self, request):
+        serializer = SignUpSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"message": "User registered successfully!"})
+        return Response(serializer.errors)
+    
 
 class CompanyListView(ListAPIView):
     queryset = Company.objects.all()

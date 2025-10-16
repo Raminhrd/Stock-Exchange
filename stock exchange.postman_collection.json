@@ -1,0 +1,286 @@
+{
+	"info": {
+		"_postman_id": "439903fc-8c94-46ea-bc9f-18185e725cc0",
+		"name": "stock exchange",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48560792",
+		"_collection_link": "https://raminhr-work-4848007.postman.co/workspace/Ramin-Hr's-Workspace~00ed1e82-e4e5-41ac-86c5-b5e36c9eff16/collection/48560792-439903fc-8c94-46ea-bc9f-18185e725cc0?action=share&source=collection_link&creator=48560792"
+	},
+	"item": [
+		{
+			"name": "127.0.0.1:8000/signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"test\",\r\n    \"password\": \"raminhr82\",\r\n    \"password2\": \"raminhr82\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/signup",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "127.0.0.1:8000/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"test\",\r\n    \"password\": \"raminhr82\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "127.0.0.1:8000/exchange/orders/",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYwNzQxNTYxLCJpYXQiOjE3NjA2NTUxNjEsImp0aSI6ImZkM2IwMDE4NWE4MzRjNWJhYjM3Njc1M2ZmMTBlYTVkIiwidXNlcl9pZCI6IjIifQ.AhWiD5jTyEInzSLC3c2hKCLz38bX0p0UMiYlZ0dMk4E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"company\": \"1\",\r\n    \"type\": \"sell\",\r\n    \"quantity\": \"10\",\r\n    \"price\": \"9600.00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/exchange/orders/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"exchange",
+						"orders",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "127.0.0.1:8000/exchange/companies/",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYwNzQxMTMzLCJpYXQiOjE3NjA2NTQ3MzMsImp0aSI6Ijk3Nzk2NTE5OTU4MTQ0YWNiYzJjNDgzOWNiOGNjYTA1IiwidXNlcl9pZCI6IjIifQ.8lGEQUIrG0lEmYY3QX96nDowdjDbyiy63IgBmNfrqK4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/exchange/companies/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"exchange",
+						"companies",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "127.0.0.1:8000/exchange/portfolio/",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYwNzQxMTMzLCJpYXQiOjE3NjA2NTQ3MzMsImp0aSI6Ijk3Nzk2NTE5OTU4MTQ0YWNiYzJjNDgzOWNiOGNjYTA1IiwidXNlcl9pZCI6IjIifQ.8lGEQUIrG0lEmYY3QX96nDowdjDbyiy63IgBmNfrqK4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/exchange/portfolio/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"exchange",
+						"portfolio",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "127.0.0.1:8000/exchange/orders/",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYwNzQxMTMzLCJpYXQiOjE3NjA2NTQ3MzMsImp0aSI6Ijk3Nzk2NTE5OTU4MTQ0YWNiYzJjNDgzOWNiOGNjYTA1IiwidXNlcl9pZCI6IjIifQ.8lGEQUIrG0lEmYY3QX96nDowdjDbyiy63IgBmNfrqK4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/exchange/orders/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"exchange",
+						"orders",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "127.0.0.1:8000/exchange/trades/",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYwNzQxMTMzLCJpYXQiOjE3NjA2NTQ3MzMsImp0aSI6Ijk3Nzk2NTE5OTU4MTQ0YWNiYzJjNDgzOWNiOGNjYTA1IiwidXNlcl9pZCI6IjIifQ.8lGEQUIrG0lEmYY3QX96nDowdjDbyiy63IgBmNfrqK4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/exchange/trades/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"exchange",
+						"trades",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "127.0.0.1:8000/exchange/my-trades/",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYwNzQxMTMzLCJpYXQiOjE3NjA2NTQ3MzMsImp0aSI6Ijk3Nzk2NTE5OTU4MTQ0YWNiYzJjNDgzOWNiOGNjYTA1IiwidXNlcl9pZCI6IjIifQ.8lGEQUIrG0lEmYY3QX96nDowdjDbyiy63IgBmNfrqK4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/exchange/my-trades/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"exchange",
+						"my-trades",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -16,10 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from exchanges.views import SignUpView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('signup', SignUpView.as_view()),
     path('login', TokenObtainPairView.as_view()),
     path('refresh', TokenRefreshView.as_view()),
-    #path('exchange/', include('exchanges.urls')),
+    path('exchange/', include('exchanges.urls')),
 ]
