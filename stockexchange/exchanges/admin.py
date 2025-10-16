@@ -1,3 +1,7 @@
 from django.contrib import admin
+from exchanges.models import *
 
-# Register your models here.
+
+admin.site.register(Company)
+admin.site.register(Portfolio)
+admin.site.register(Order)

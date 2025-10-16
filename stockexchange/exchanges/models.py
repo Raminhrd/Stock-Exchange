@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User 
 
 
 class Company(models.Model):
@@ -42,4 +42,4 @@ class Order(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     type = models.CharField(max_length=4, choices=ORDER_TYPE_CHOICES)
     quantity = models.PositiveIntegerField()
-    remaining_quantity = models.PositiveIn_
+    remaining_quantity = models.PositiveIntegerField()
